@@ -1,7 +1,6 @@
 {
   "name": "npmtest",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "watch": "onchange \"css/*.scss\" -- npm run sass",
@@ -10,10 +9,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.1.0"
+    "bootstrap": "^5.0.0-beta3"
   },
   "devDependencies": {
     "node-sass": "^5.0.0",
     "onchange": "^7.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeamAn93/musikPhp1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SeamAn93/musikPhp1/issues"
+  },
+  "homepage": "https://github.com/SeamAn93/musikPhp1#readme",
+  "description": ""
 }

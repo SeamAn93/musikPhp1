@@ -2,8 +2,8 @@
 require "settings/init.php";
 if(!empty($_POST["data"])){
     $data = $_POST["data"];
-    $sql = "INSERT INTO produkter (prodNavn, prodBeskrivelse, prodPris) VALUES(:prodNavn, :prodBeskrivelse, :prodPris)";
-    $bind = [":prodNavn" => $data["prodNavn"],":prodBeskrivelse" => $data["prodBeskrivelse"],":prodPris" => $data["prodPris"]];
+    $sql = "INSERT INTO information (musikTitel, musikArtist, musikAlbum, musikGerne, musikOrigin, musikRelease, musikTime, musikBandInstrument, musikAlbumTracklist, musikBuy) VALUES(:musikTitel, :musikArtist, :musikAlbum, :musikGerne, :musikOrigin, :musikRelease, :musikTime, :musikBandInstrument, :musikAlbumTracklist, :musikBuy)";
+    $bind = [":musikTitel" => $data["musikTitel"],":musikArtist" => $data["musikArtist"],":musikAlbum" => $data["musikAlbum"],":musikGerne" => $data["musikGerne"],":musikOrigin" => $data["musikOrigin"],":musikRelease" => $data["musikRelease"], ":musikTime" => $data["musikTime"],":musikBandInstrument" => $data["musikBandInstrument"],":musikAlbumTracklist" => $data["musikAlbumTracklist"],":musikBuy" => $data["musikBuy"]];
     $db->sql($sql,$bind,false);
     echo "Produktet er nu indsat. <a href='insert.php'>Indsæt er produkt mere</a>";
     exit;
@@ -17,15 +17,98 @@ if(!empty($_POST["data"])){
     <meta name="robots" content="All">
     <meta name="author" content="David Osbeck & Søren Andersen">
     <meta name="copyright" content="David Osbeck & Søren Andersen">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.scss" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tiny.cloud/1/hlgnu720dcrihycfqzdw381s3lo7v9n7snkn1j9t1yizavot/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://kit.fontawesome.com/d7a71e7a7e.js" crossorigin="anonymous"></script>
 </head>
-<body>
-Hej
+<body class="bg-background">
 
+<section class="main container">
+<div class="header d-flex justify-content-between mt-5 mb-4 mb-md-5 text-white">
+    <h1 class="header-title">Music Database</h1>
+    <button class="btn btn-primær text-white btn-lg"><i class="fas fa-home"></i> Back to home</button>
+</div>
 
+<form method="post" action="insert.php">
+    <div class="row">
+        <div class="col-12 col-md-7 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikTitel" class="form-label fs-5">Title</label>
+                <input class="form-control" type="text" name="data[musikTitel]" id="musikTitel" placeholder="Title" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-7 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikArtist" class="form-label fs-5">Artist</label>
+                <input class="form-control" type="text" name="data[musikArtist]" id="musikArtist" placeholder="Artist" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-7 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikAlbum" class="form-label fs-5">Album</label>
+                <input class="form-control" type="text" name="data[musikAlbum]" id="musikAlbum" placeholder="Album" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-7 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikGenre" class="form-label fs-5">Genre</label>
+                <input class="form-control" type="text" name="data[musikGerne]" id="musikGenre" placeholder="Genre" value="">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-7 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikOrigin" class="form-label fs-5">Origin</label>
+                <input class="form-control" type="text" name="data[musikOrigin]" id="musikOrigin" placeholder="Origin" value="">
+            </div>
+        </div>
+
+        <div class="col-6 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikRelease" class="form-label fs-5">Date of release</label>
+                <input class="form-control" type="date" name="data[musikRelease]" id="musikRelease" placeholder="" value="">
+            </div>
+        </div>
+
+        <div class="col-6 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikTime" class="form-label fs-5">Track length</label>
+                <input class="form-control" type="text" name="data[musikTime]" id="musikTime" placeholder="00.00" value="">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="mb-3 text-white">
+                <label for="musikBandInstrument" class="form-label fs-5">Band members / instruments</label>
+                <textarea class="form-control" name="data[musikBandInstrument]" id="musikBandInstrument"></textarea>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="mb-3 text-white">
+                <label for="musikAlbumTracklist" class="form-label fs-5">Album tracklist</label>
+                <textarea class="form-control" name="data[musikAlbumTracklist]" id="musikAlbumTracklist"></textarea>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikBuy" class="form-label fs-5">iTunes link</label>
+                <input class="form-control" type="text" name="data[musikBuy]" id="musikBuy" placeholder="iTunes" value="">
+            </div>
+        </div>
+
+        <div class="btn-container d-flex justify-content-center my-4">
+            <a href="index.php"><button class="btn btn-cancel btn-lg text-white mx-3">Cancel</button></a>
+            <button class="btn btn-primær btn-lg text-white mx-3" type="submit" id="btnSubmit">Confirm</button>
+        </div>
+
+</section>
 <script>
     tinymce.init({
         selector: 'textarea',
