@@ -23,7 +23,7 @@ if(!empty($_POST["data"])){
     <script src="https://cdn.tiny.cloud/1/hlgnu720dcrihycfqzdw381s3lo7v9n7snkn1j9t1yizavot/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body>
-
+Hej
 
 
 <script>
