@@ -1,12 +1,14 @@
 // DENNE FIL ER KUN TIL BOOTSTRAP RETTELSER
 
 @import "../node_modules/bootstrap/scss/functions";
+
+$body-bg: #091A2C;
+
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
 
 $custom-colors: (
-        "primær": #007DFF,
-        "background": #091A2C,
+        "primary": #007DFF,
         "cancel": #D93030
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
