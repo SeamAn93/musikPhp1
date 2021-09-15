@@ -3,8 +3,8 @@ require "settings/init.php";
 
 if(!empty($_POST["data"])){
     $data = $_POST["data"];
-    $sql = "INSERT INTO information (musikTitel, musikArtist, musikAlbum, musikGerne, musikOrigin, musikRelease, musikTime, musikBandInstrument, musikAlbumTracklist, musikBuy) VALUES(:musikTitel, :musikArtist, :musikAlbum, :musikGerne, :musikOrigin, :musikRelease, :musikTime, :musikBandInstrument, :musikAlbumTracklist, :musikBuy)";
-    $bind = [":musikTitel" => $data["musikTitel"],":musikArtist" => $data["musikArtist"],":musikAlbum" => $data["musikAlbum"],":musikGerne" => $data["musikGerne"],":musikOrigin" => $data["musikOrigin"],":musikRelease" => $data["musikRelease"], ":musikTime" => $data["musikTime"],":musikBandInstrument" => $data["musikBandInstrument"],":musikAlbumTracklist" => $data["musikAlbumTracklist"],":musikBuy" => $data["musikBuy"]];
+    $sql = "INSERT INTO information (musikTitel, musikArtist, musikAlbum, musikGenre, musikOrigin, musikRelease, musikTime, musikBandInstrument, musikAlbumTracklist, musikBuy) VALUES(:musikTitel, :musikArtist, :musikAlbum, :musikGenre, :musikOrigin, :musikRelease, :musikTime, :musikBandInstrument, :musikAlbumTracklist, :musikBuy)";
+    $bind = [":musikTitel" => $data["musikTitel"],":musikArtist" => $data["musikArtist"],":musikAlbum" => $data["musikAlbum"],":musikGenre" => $data["musikGenre"],":musikOrigin" => $data["musikOrigin"],":musikRelease" => $data["musikRelease"], ":musikTime" => $data["musikTime"],":musikBandInstrument" => $data["musikBandInstrument"],":musikAlbumTracklist" => $data["musikAlbumTracklist"],":musikBuy" => $data["musikBuy"]];
     $db->sql($sql,$bind,false);
 
     header('Location: insert.php?insert');
@@ -63,7 +63,7 @@ if(!empty($_POST["data"])){
         <div class="col-12 col-md-6 mb-2">
             <div class="mb-3 text-white">
                 <label for="musikGenre" class="form-label fs-5">Genre / subgenre</label>
-                <input class="form-control" type="text" name="data[musikGerne]" id="musikGenre" placeholder="Genre / subgenre" value="">
+                <input class="form-control" type="text" name="data[musikGenre]" id="musikGenre" placeholder="Genre / subgenre" value="">
             </div>
         </div>
 
@@ -112,8 +112,8 @@ if(!empty($_POST["data"])){
 
         <div class="col-12 col-md-2 mb-2">
             <div class="mb-3 text-white">
-                <label for="musikPrice" class="form-label fs-5">Price</label>
-                <input class="form-control" type="text" name="data[musikPrice]" id="musikPrice" placeholder="$" value="">
+                <label for="musikPrice" class="form-label fs-5">Price in dollars</label>
+                <input class="form-control" type="text" name="data[musikPrice]" id="musikPrice" placeholder="9.99" value="">
             </div>
         </div>
 
@@ -151,12 +151,12 @@ if(isset($_GET["insert"])){
     });
 
 
-    const modal = document.querySelector('.modal');
-    if(modal){
-        const bsModal = new bootstrap.Modal(modal, {keyboard: false});
+    const confirmModal = document.querySelector('.modal');
+    if(confirmModal){
+        const bsModal = new bootstrap.Modal(confirmModal, {keyboard: false});
         bsModal.show();
 
-        modal.addEventListener('hide.bs.modal', () => {
+        confirmModal.addEventListener('hide.bs.modal', () => {
             document.location = "index.php";
         })
     }
