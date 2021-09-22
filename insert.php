@@ -40,6 +40,10 @@ if(!empty($_POST["data"])){
     <link href="css/styles.scss" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/hlgnu720dcrihycfqzdw381s3lo7v9n7snkn1j9t1yizavot/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://kit.fontawesome.com/d7a71e7a7e.js" crossorigin="anonymous"></script>
 </head>
@@ -49,7 +53,7 @@ if(!empty($_POST["data"])){
     <nav>
         <div class="d-flex justify-content-between align-items-center my-3 my-xl-5">
             <h5 class="m-0 h5 nav__header">Music Database</h5>
-            <a class="btn btn-primary text-white d-flex align-items-center" href="index.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
+            <a class="btn btn-primary text-white" href="index.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
         </div>
     </nav>
 

@@ -29,7 +29,7 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
     <nav>
         <div class="d-flex justify-content-between align-items-center my-3 my-xl-5">
             <h5 class="m-0 h5 nav__header">Music Database</h5>
-            <a class="btn btn-primary text-white d-flex align-items-center" href="index.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
+            <a class="btn btn-primary text-white" href="index.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
         </div>
     </nav>
 
