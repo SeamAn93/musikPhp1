@@ -29,7 +29,7 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
     <nav>
         <div class="d-flex justify-content-between align-items-center my-3 my-xl-5">
             <h5 class="m-0 h5 nav__header">Music Database</h5>
-            <a class="btn btn-primary text-white d-flex align-items-center" href="insert.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
+            <a class="btn btn-primary text-white d-flex align-items-center" href="index.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
         </div>
     </nav>
 
@@ -38,7 +38,7 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
     <div class="col-xl-7">
         <div class="row">
             <div class="col-12 col-md-6">
-                <img src="img/Meteora.jpg" alt="Linkin Park Album cover Meteora" class="pt-5 pb-4 px-5 ps-md-0">
+                <img src="img/Meteora.jpg" alt="Linkin Park Album cover Meteora" class="pt-5 pb-4 px-5 ps-md-0 pe-xl-0">
             </div>
             <div class="text-center col-12 col-md-4 col-lg-4 d-flex flex-column justify-content-center align-items-center">
                 <h2>Numb</h2>
@@ -69,7 +69,11 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
 
         <div class="buy d-flex justify-content-start my-5">
             <h5 class="me-3 mb-0 d-flex align-self-center">$ 5.00</h5>
-            <a class="btn btn-primary text-white d-flex align-items-center ms-3" href="insert.php" role="button"><i class="fab fa-amazon me-1 me-xl-2"></i>Buy on Amazon</a>
+            <a class="btn btn-primary text-white d-flex align-items-center ms-3" href="<?php
+            $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
+            foreach ($musikinfo as $musik) {
+                echo $musik->musikBuy;
+            } ?>" target="_blank" role="button"><i class="fab fa-amazon me-1 me-xl-2"></i>Buy on Amazon</a>
         </div>
     </div>
     <!-- Tracklist --!>
