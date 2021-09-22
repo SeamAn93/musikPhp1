@@ -48,8 +48,8 @@ if(!empty($_POST["data"])){
 <section class="main container">
     <nav>
         <div class="d-flex justify-content-between align-items-center my-3 my-xl-5">
-            <h5 class="m-0 h5">Music Database</h5>
-            <a class="btn btn-primary text-white d-flex align-items-center" href="insert.php" role="button"><i class="fas fa-home me-1"></i>Back to home</a>
+            <h5 class="m-0 h5 nav__header">Music Database</h5>
+            <a class="btn btn-primary text-white d-flex align-items-center" href="index.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
         </div>
     </nav>
 
@@ -158,10 +158,10 @@ if(isset($_GET["insert"])){
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <p>Your song/artist/album has been added, want to add another?</p>
+                    <p class="text-body">Your song/artist/album has been added, want to add another?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-lg btn-cancel">Back to home</button>
+                    <a href="index.php"><button type="button" class="btn btn-lg btn-cancel">Back to home</button></a>
                     <a href="insert.php" class="btn btn-lg btn-primary text-white">Confirm</a>
                 </div>
             </div>
@@ -172,13 +172,15 @@ if(isset($_GET["insert"])){
 ?>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
     tinymce.init({
         selector: 'textarea',
         menubar: false;
     });
+</script>
 
-
+<script>
     const confirmModal = document.querySelector('.modal');
     if(confirmModal){
         const bsModal = new bootstrap.Modal(confirmModal, {keyboard: false});
