@@ -9,7 +9,7 @@ if(!empty($_POST["data"])){
         move_uploaded_file($file["musikImg"]["tmp_name"], "uploads/" . basename($file["musikImg"]["name"]));
     }
 
-    $sql = "INSERT INTO information (musikTitel, musikArtist, musikAlbum, musikGenre, musikOrigin, musikRelease, musikTime, musikBandInstrument, musikAlbumTracklist, musikBuy, musikImg) VALUES(:musikTitel, :musikArtist, :musikAlbum, :musikGenre, :musikOrigin, :musikRelease, :musikTime, :musikBandInstrument, :musikAlbumTracklist, :musikBuy, :musikImg)";
+    $sql = "INSERT INTO information (musikTitel, musikArtist, musikAlbum, musikGenre, musikOrigin, musikRelease, musikTime, musikBandInstrument, musikAlbumTracklist, musikBuy, musikPrice, musikImg) VALUES(:musikTitel, :musikArtist, :musikAlbum, :musikGenre, :musikOrigin, :musikRelease, :musikTime, :musikBandInstrument, :musikAlbumTracklist, :musikBuy, :musikPrice, :musikImg)";
     $bind = [":musikTitel" => $data["musikTitel"],
              ":musikArtist" => $data["musikArtist"],
              ":musikAlbum" => $data["musikAlbum"],
@@ -20,6 +20,7 @@ if(!empty($_POST["data"])){
              ":musikBandInstrument" => $data["musikBandInstrument"],
              ":musikAlbumTracklist" => $data["musikAlbumTracklist"],
              ":musikBuy" => $data["musikBuy"],
+             ":musikPrice" => $data["musikPrice"],
              ":musikImg" => (!empty($file["musikImg"]["tmp_name"])) ? $file["musikImg"]["name"] : NULL,
             ];
 
@@ -144,7 +145,7 @@ if(!empty($_POST["data"])){
         <div class="col-12 col-md-3 mb-2">
             <div class="mb-3 text-white">
                 <label for="musikPrice" class="form-label fs-5">Price in dollars</label>
-                <input class="form-control" type="number" name="data[musikPrice]" id="musikPrice" placeholder="9.99" value="">
+                <input class="form-control" type="number" step=".01" name="data[musikPrice]" id="musikPrice" placeholder="9.99" value="">
             </div>
         </div>
 
