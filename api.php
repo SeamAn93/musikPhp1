@@ -37,7 +37,7 @@ if(isset($data["password"]) && $data["password"] == "Musicdatabase") {
 
 <!-- Hvorfor skal der kode på, når siden skal bruges til at søge musik? Skal brugen så ikke have passwordet (Musicdatabase), for at søge musikken? --!>
 <!-- Hvis inputet ikke kan findes i databasen, hvordan får man så en besked op med "No result" op? Skal den skrives ind under else eller hvordan? --!>
-<!-- Hvordan for vi TinyMCE textarea til at omdanne alt text til det samme format (style)? --!>
+<!-- ORDER BY rigtig? --!>
 
 <!DOCTYPE html>
 <html lang="da">->
