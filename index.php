@@ -1,8 +1,8 @@
 <?php
 require "settings/init.php";
 
-$blogs = $db->sql("SELECT * FROM blogs");
+$musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
 
-foreach ($blogs as $blog){
-    echo $blog->blogName . "<br>";
+foreach ($musikinfo as $musik){
+    echo $musik->musikAlbumTracklist . " - " . $musik->musikArtist . "<br>";
 }

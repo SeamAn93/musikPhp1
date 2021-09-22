@@ -27,7 +27,6 @@ p {
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
-	color: white;
 }
 
 img {
@@ -42,4 +41,66 @@ a {
 
 .text__h5__mod {
 	font-weight: normal;
+	font-size: 1.125rem;
+}
+
+.line {
+	height: 3px;
+	width: 100%;
+	background-color: #203041;
+	margin-bottom: 2rem;
+}
+
+.tracklist__items p {
+	font-size: 1.125rem;
+	padding: 1rem;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.tracklist__items p:nth-child(odd){
+	background-color: #0A2541;
+}
+
+.tracklist__items p:nth-child(even) {
+	background-color: #203041;
+}
+
+footer {
+	background-color: #0C0D0E;
+}
+
+footer h2 {
+	color: #A1A1A1;
+}
+
+footer a {
+	transition: .2s all;
+}
+
+footer a:hover {
+	transition: .2s all;
+	color: #A1A1A1 !important;
+}
+
+@media screen and (min-width: 1200px) {
+	.tracklist__items p {
+		padding: .6rem 1rem;
+	}
+
+	.text__h5__mod {
+		font-size: 1.25rem;
+	}
+
+	nav h5 {
+		font-size: 1.5rem !important;
+	}
+
+	nav a {
+		font-size: 1.125rem !important;
+	}
+
+	.buy a {
+		font-size: 1.125rem !important;
+	}
 }

@@ -10,65 +10,116 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tiny.cloud/1/hlgnu720dcrihycfqzdw381s3lo7v9n7snkn1j9t1yizavot/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/hlgnu720dcrihycfqzdw381s3lo7v9n7snkn1j9t1yizavot/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
     <script src="https://kit.fontawesome.com/d7a71e7a7e.js" crossorigin="anonymous"></script>
 </head>
+
+<?php
+require "settings/init.php";
+
+$musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
+
+?>
 <body>
 <section class="container">
-<nav>
-    <div class="d-flex justify-content-between my-3">
-        <h2 class="">Music Database</h2>
-        <a class="btn btn-primary text-white d-flex align-self-center" href="insert.php" role="button"><img src="" alt="">Back to home</a>
+    <nav>
+        <div class="d-flex justify-content-between align-items-center my-3 my-xl-5">
+            <h5 class="m-0 h5 nav__header">Music Database</h5>
+            <a class="btn btn-primary text-white d-flex align-items-center" href="insert.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
+        </div>
+    </nav>
+
+    <!--Billede, titel og numre--!>
+<div class="row">
+    <div class="col-xl-7">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="img/Meteora.jpg" alt="Linkin Park Album cover Meteora" class="pt-5 pb-4 px-5 ps-md-0">
+            </div>
+            <div class="text-center col-12 col-md-4 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+                <h2>Numb</h2>
+                <h5 class="text__h5__mod">Linkin Park</h5>
+            </div>
+        </div>
+
+        <!-- Andre informationer om nummeret --!>
+
+        <div class="row my-4">
+            <div class="col-6 col-md-4">
+                <h5 class="text__h5__mod">Album:</h5>
+                <h5 class="text__h5__mod">Release:</h5>
+                <h5 class="text__h5__mod">Track length:</h5>
+                <h5 class="text__h5__mod">Country:</h5>
+                <h5 class="text__h5__mod">Genre/subgenre:</h5>
+            </div>
+            <div class="col-6 col-md-4">
+                <h5 class="text__h5__mod">Meteora</h5>
+                <h5 class="text__h5__mod">8 September, 2003</h5>
+                <h5 class="text__h5__mod">03:06</h5>
+                <h5 class="text__h5__mod">USA</h5>
+                <h5 class="text__h5__mod">Nu metal, alternativ rock</h5>
+            </div>
+        </div>
+
+        <!--Pris og link til amazon --!>
+
+        <div class="buy d-flex justify-content-start my-5">
+            <h5 class="me-3 mb-0 d-flex align-self-center">$ 5.00</h5>
+            <a class="btn btn-primary text-white d-flex align-items-center ms-3" href="insert.php" role="button"><i class="fab fa-amazon me-1 me-xl-2"></i>Buy on Amazon</a>
+        </div>
     </div>
-</nav>
+    <!-- Tracklist --!>
 
-<!--Billede, titel og numre--!>
-
-<div class="flex-column d-md-flex justify-content-evenly">
-    <img src="img/Linkin_Park_Meteora_Album_Cover.svg" alt="Linkin Park Album cover Meteora">
-    <div class="text-center">
-        <h2>Numb</h2>
-        <h5 class="text__h5__mod">Linkin Park</h5>
+    <div class="col-xl-5">
+        <div class="flex-column mb-5">
+            <h2>Tracklist</h2>
+            <div class="line"></div>
+            <div class="tracklist__items">
+                <?php
+                $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
+                foreach ($musikinfo as $musik) {
+                    echo $musik->musikAlbumTracklist;
+                }
+                ?>
+            </div>
+        </div>
     </div>
 </div>
-
-<!-- Andre informationer om nummeret --!>
-
-<div class="row my-4">
-    <div class="col-6">
-        <h5>Album:</h5>
-        <h5>Release:</h5>
-        <h5>Track length:</h5>
-        <h5>Country:</h5>
-        <h5>Genre/subgenre:</h5>
+    <div class="band pb-5">
+        <h2>Band/instruments</h2>
+        <div class="line"></div>
+        <div class="band__items text-white fs-5">
+            <?php
+            $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
+            foreach ($musikinfo as $musik) {
+                echo $musik->musikBandInstrument;
+            }
+            ?>
+        </div>
     </div>
-    <div class="col-6">
-        <h5 class="text__h5__mod">Meteora</h5>
-        <h5 class="text__h5__mod">8 September, 2003</h5>
-        <h5 class="text__h5__mod">03:06</h5>
-        <h5 class="text__h5__mod">USA</h5>
-        <h5 class="text__h5__mod">Nu metal, alternativ rock</h5>
-    </div>
-</div>
-
-<!--Pris og link til amazon --!>
-
-<div class="d-flex justify-content-center my-5">
-    <h5 class="me-3 mb-0 d-flex align-self-center">$ 5.00</h5>
-    <a class="btn btn-primary text-white d-flex align-self-center ms-3" href="insert.php" role="button"><img src="" alt="Amazon icon">Buy on Amazon</a>
-</div>
-
-<!-- Tracklist --!>
-
-<div class="flex-column">
-    <h2>Tracklist</h2>
-
-</div>
-
 </section>
-<footer></footer>
+
+<footer class="pt-5 pb-2 mt-5">
+    <div class="icon__container d-flex justify-content-center text-white">
+        <a href="https://github.com/SeamAn93/musikPhp1" class="mb-4 text-white"><i class="fab fa-github fa-3x"></i></a>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="footer__nav d-flex text-center flex-column justify-content-center">
+            <h2>Menu</h2>
+            <div class="line"></div>
+            <a class="text-decoration-none text-white fs-5 my-1" href="index.php">Home</a>
+            <a class="text-decoration-none text-white fs-5 my-1" href="insert.php">Add to database</a>
+        </div>
+
+    </div>
+    <p class="text-center text-white mt-5">© 2021 Music Database</p>
+
+</footer>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>

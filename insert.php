@@ -3,8 +3,26 @@ require "settings/init.php";
 
 if(!empty($_POST["data"])){
     $data = $_POST["data"];
-    $sql = "INSERT INTO information (musikTitel, musikArtist, musikAlbum, musikGenre, musikOrigin, musikRelease, musikTime, musikBandInstrument, musikAlbumTracklist, musikBuy) VALUES(:musikTitel, :musikArtist, :musikAlbum, :musikGenre, :musikOrigin, :musikRelease, :musikTime, :musikBandInstrument, :musikAlbumTracklist, :musikBuy)";
-    $bind = [":musikTitel" => $data["musikTitel"],":musikArtist" => $data["musikArtist"],":musikAlbum" => $data["musikAlbum"],":musikGenre" => $data["musikGenre"],":musikOrigin" => $data["musikOrigin"],":musikRelease" => $data["musikRelease"], ":musikTime" => $data["musikTime"],":musikBandInstrument" => $data["musikBandInstrument"],":musikAlbumTracklist" => $data["musikAlbumTracklist"],":musikBuy" => $data["musikBuy"]];
+    $file = $_FILES;
+
+    if(!empty($file["musikImg"]["tmp_name"])){
+        move_uploaded_file($file["musikImg"]["tmp_name"], "uploads/" . basename($file["musikImg"]["name"]));
+    }
+
+    $sql = "INSERT INTO information (musikTitel, musikArtist, musikAlbum, musikGenre, musikOrigin, musikRelease, musikTime, musikBandInstrument, musikAlbumTracklist, musikBuy, musikImg) VALUES(:musikTitel, :musikArtist, :musikAlbum, :musikGenre, :musikOrigin, :musikRelease, :musikTime, :musikBandInstrument, :musikAlbumTracklist, :musikBuy, :musikImg)";
+    $bind = [":musikTitel" => $data["musikTitel"],
+             ":musikArtist" => $data["musikArtist"],
+             ":musikAlbum" => $data["musikAlbum"],
+             ":musikGenre" => $data["musikGenre"],
+             ":musikOrigin" => $data["musikOrigin"],
+             ":musikRelease" => $data["musikRelease"],
+             ":musikTime" => $data["musikTime"],
+             ":musikBandInstrument" => $data["musikBandInstrument"],
+             ":musikAlbumTracklist" => $data["musikAlbumTracklist"],
+             ":musikBuy" => $data["musikBuy"],
+             ":musikImg" => (!empty($file["musikImg"]["tmp_name"])) ? $file["musikImg"]["name"] : NULL,
+            ];
+
     $db->sql($sql,$bind,false);
 
     header('Location: insert.php?insert');
@@ -28,16 +46,18 @@ if(!empty($_POST["data"])){
 <body>
 
 <section class="main container">
-    <div class="header d-flex justify-content-between mt-5 mb-4 mb-md-5 text-white">
-        <h1 class="header-title">Music Database</h1>
-        <button class="btn btn-primary text-white btn-lg"><i class="fas fa-home"></i> Back to home</button>
-    </div>
+    <nav>
+        <div class="d-flex justify-content-between align-items-center my-3 my-xl-5">
+            <h5 class="m-0 h5">Music Database</h5>
+            <a class="btn btn-primary text-white d-flex align-items-center" href="insert.php" role="button"><i class="fas fa-home me-1"></i>Back to home</a>
+        </div>
+    </nav>
 
     <div class="header">
         <h2 class="header__title text-white mb-5 pt-4 fw-normal">Add a new song/artist/album...</h2>
     </div>
 
-<form method="post" action="insert.php">
+<form method="post" action="insert.php" enctype="multipart/form-data">
     <div class="row">
         <div class="col-12 col-md-6 mb-2">
             <div class=" mb-3 text-white">
@@ -60,7 +80,7 @@ if(!empty($_POST["data"])){
             </div>
         </div>
 
-        <div class="col-12 col-md-6 mb-2">
+        <div class="col-12 col-md-6 mb-4">
             <div class="mb-3 text-white">
                 <label for="musikGenre" class="form-label fs-5">Genre / subgenre</label>
                 <input class="form-control" type="text" name="data[musikGenre]" id="musikGenre" placeholder="Genre / subgenre" value="">
@@ -82,24 +102,31 @@ if(!empty($_POST["data"])){
             </div>
         </div>
 
-        <div class="col-4 mb-2">
+        <div class="col-4 mb-4">
             <div class="has-validation mb-3 text-white">
                 <label for="musikTime" class="form-label fs-5">Track length</label>
                 <input class="form-control" type="time" name="data[musikTime]" id="musikTime" step="1" placeholder="00:00:00" value="00:00:00" min="00:00:00" required>
             </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-6 mb-4">
             <div class="mb-3 text-white">
-                <label for="musikBandInstrument" class="form-label fs-5">Band members / instruments</label>
-                <textarea class="form-control" name="data[musikBandInstrument]" id="musikBandInstrument" placeholder="John doe - Guitar"></textarea>
+                <label for="musikImg" class="form-label fs-5">Upload album cover art</label>
+                <input class="form-control" type="file" name="musikImg" id="musikImg" placeholder="" value="">
             </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-12 mb-2">
+            <div class="mb-3 text-white">
+                <label for="musikBandInstrument" class="form-label fs-5">Band members / instruments</label>
+                <textarea class="form-control" name="data[musikBandInstrument]" id="musikBandInstrument" placeholder="John doe - Guitar" style="height:200px;"></textarea>
+            </div>
+        </div>
+
+        <div class="col-12 mb-4">
             <div class="mb-3 text-white">
                 <label for="musikAlbumTracklist" class="form-label fs-5">Album tracklist</label>
-                <textarea class="form-control" name="data[musikAlbumTracklist]" id="musikAlbumTracklist" placeholder="Track #1 - 00:00"></textarea>
+                <textarea class="form-control" name="data[musikAlbumTracklist]" id="musikAlbumTracklist" placeholder="Track #1 - 00:00" style="height:200px;"></textarea>
             </div>
         </div>
 
@@ -110,10 +137,10 @@ if(!empty($_POST["data"])){
             </div>
         </div>
 
-        <div class="col-12 col-md-2 mb-2">
+        <div class="col-12 col-md-3 mb-2">
             <div class="mb-3 text-white">
                 <label for="musikPrice" class="form-label fs-5">Price in dollars</label>
-                <input class="form-control" type="text" name="data[musikPrice]" id="musikPrice" placeholder="9.99" value="">
+                <input class="form-control" type="number" name="data[musikPrice]" id="musikPrice" placeholder="9.99" value="">
             </div>
         </div>
 
@@ -148,6 +175,7 @@ if(isset($_GET["insert"])){
 <script>
     tinymce.init({
         selector: 'textarea',
+        menubar: false;
     });
 
 
