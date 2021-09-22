@@ -6,21 +6,21 @@ $data = json_decode(file_get_contents('php://input'),true);
 header ('content-type: aapplication/json; charset=utf-8');
 
 if(isset($data["password"]) && $data["password"] == "Musicdatabase") {
-    $sql = "SELECT * FROM information WHERE 1=1";
+    $sql = "SELECT * FROM information WHERE 1=1 ORDER BY musikId DESC";
     $bind = [];
 
     if(!empty($data["nameSearch"])) {
-        $sql .= "And musikTitel = musikTitel";
+        $sql .= "AND musikTitel = musikTitel";
         $bind[":musikTitel"] = $data["nameSearch"];
     }
 
     if(!empty($data["nameSearch"])) {
-        $sql .= "And musikArtist = musikArtist";
+        $sql .= "AND musikArtist = musikArtist";
         $bind[":musikArtist"] = $data["nameSearch"];
     }
 
     if(!empty($data["nameSearch"])) {
-        $sql .= "And musikAlbum = musikAlbum";
+        $sql .= "AND musikAlbum = musikAlbum";
         $bind[":musikAlbum"] = $data["nameSearch"];
     }
 

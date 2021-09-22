@@ -93,7 +93,7 @@ if(!empty($_POST["data"])){
 
         <div class="col-12 col-md-4 mb-2">
             <div class="mb-3 text-white">
-                <label for="musikOrigin" class="form-label fs-5">Where is the artist from?</label>
+                <label for="musikOrigin" class="form-label fs-5">Origin</label>
                 <input class="form-control" type="text" name="data[musikOrigin]" id="musikOrigin" placeholder="Origin" value="">
             </div>
         </div>
