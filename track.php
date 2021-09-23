@@ -38,7 +38,7 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
     <div class="col-xl-7">
         <div class="row">
             <div class="col-12 col-md-6">
-                <img src="img/Meteora.jpg" alt="Linkin Park Album cover Meteora" class="pt-5 pb-4 px-5 ps-md-0 pe-xl-0">
+                <img src="uploads/Meteora.jpg" alt="Linkin Park Album cover Meteora" class="pt-5 pb-4 px-5 ps-md-0 pe-xl-0">
             </div>
             <div class="text-center col-12 col-md-4 col-lg-4 d-flex flex-column justify-content-center align-items-center">
                 <h2>Numb</h2>
