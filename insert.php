@@ -20,7 +20,7 @@ if(!empty($_POST["data"])){
              ":musikBandInstrument" => $data["musikBandInstrument"],
              ":musikAlbumTracklist" => $data["musikAlbumTracklist"],
              ":musikBuy" => $data["musikBuy"],
-             ":musikPrice" => $data["musikPrice"],
+             ":musikPrice" => (!empty($data["musikPrice"])) ? $data["musikPrice"] : NULL,
              ":musikImg" => (!empty($file["musikImg"]["tmp_name"])) ? $file["musikImg"]["name"] : NULL,
             ];
 
