@@ -49,7 +49,7 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
         <!-- Andre informationer om nummeret --!>
 
         <div class="row my-4">
-            <div class="col-6 col-md-4">
+            <div class="album__info col-6 col-md-4">
                 <h5 class="text__h5__mod">Album:</h5>
                 <h5 class="text__h5__mod">Release:</h5>
                 <h5 class="text__h5__mod">Track length:</h5>
