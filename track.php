@@ -38,7 +38,7 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
     <div class="col-xl-7">
         <div class="row">
             <div class="col-12 col-md-6">
-                <img src="uploads/Meteora.jpg" alt="Linkin Park Album cover Meteora" class="pt-5 pb-4 px-5 ps-md-0 pe-xl-0">
+                <img src="uploads/Meteora.jpg" alt="Linkin Park Album cover Meteora" class="mt-5 mb-5 ms-md-0 me-xl-0">
             </div>
             <div class="text-center col-12 col-md-4 col-lg-4 d-flex flex-column justify-content-center align-items-center">
                 <h2>Numb</h2>
@@ -49,14 +49,14 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
         <!-- Andre informationer om nummeret --!>
 
         <div class="row my-4">
-            <div class="album__info col-6 col-md-4">
+            <div class="album__info col-6 col-md-5">
                 <h5 class="text__h5__mod">Album:</h5>
                 <h5 class="text__h5__mod">Release:</h5>
                 <h5 class="text__h5__mod">Track length:</h5>
                 <h5 class="text__h5__mod">Country:</h5>
                 <h5 class="text__h5__mod">Genre/subgenre:</h5>
             </div>
-            <div class="col-6 col-md-4">
+            <div class="col-6 col-md-5">
                 <h5 class="text__h5__mod">Meteora</h5>
                 <h5 class="text__h5__mod">8 September, 2003</h5>
                 <h5 class="text__h5__mod">03:06</h5>
