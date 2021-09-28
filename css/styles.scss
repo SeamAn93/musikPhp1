@@ -57,9 +57,11 @@ input::-webkit-inner-spin-button {
 	border-radius: 5px;
 }
 
+.card {
+	border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
 .card-body {
-	backdrop-filter: blur(16px) saturate(180%);
-	-webkit-backdrop-filter: blur(16px) saturate(180%);
 	background-color: rgba(17, 25, 40, 0.80);
 	border-radius: 0 0 3px 3px;
 	border: 1px solid rgba(255, 255, 255, 0.125);
