@@ -23,7 +23,6 @@ require "settings/init.php";
 $bind = [':musikId' => $_GET['musikId']];
 $musikinfo = $db->sql("SELECT * FROM information WHERE musikID = :musikId", $bind);
 $musikinfo = $musikinfo[0];
-
 ?>
 <body>
 <section class="container">

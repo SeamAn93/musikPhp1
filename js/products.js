@@ -24,7 +24,7 @@ export default class Products {
         const data = await this.getData();
 
         const row = document.createElement('div');
-        row.classList.add('row', 'g-4');
+        row.classList.add('row', 'g-4', 'mt-5',);
 
         for(const item of data){
             const col = document.createElement('div');
@@ -32,7 +32,7 @@ export default class Products {
 
             col.innerHTML = `
                 <div class="card text-white border-0">
-                    <img src="uploads/${item.musikImg}" class="card-img-top">
+                    <a href="track.php?musikId=${item.musikId}"><img src="uploads/${item.musikImg}" class="card-img-top"></a>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fs-4">${item.musikTitel}</h5>
                         <p class="card-text fs-5 mb-4">${item.musikArtist}</p>

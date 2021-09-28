@@ -39,7 +39,7 @@
     </div>
 
     <div class="products">
-        <div class="filter m-5">
+        <div class="filter mt-2 mb-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <label for="search"></label>
