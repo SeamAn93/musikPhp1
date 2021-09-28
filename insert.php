@@ -67,35 +67,35 @@ if(!empty($_POST["data"])){
         <div class="col-12 col-md-6 mb-2">
             <div class=" mb-3 text-white">
                 <label for="musikTitel" class="form-label fs-5">Title</label>
-                    <input class="form-control" type="text" name="data[musikTitel]" id="musikTitel" placeholder="Title" value="" required>
+                    <input class="form-control fs-5" type="text" name="data[musikTitel]" id="musikTitel" placeholder="Title" value="" required>
             </div>
         </div>
 
         <div class="col-12 col-md-6 mb-2">
             <div class="has-validation mb-3 text-white">
                 <label for="musikArtist" class="form-label fs-5">Artist</label>
-                <input class="form-control" type="text" name="data[musikArtist]" id="musikArtist" placeholder="Artist" value="" required>
+                <input class="form-control fs-5" type="text" name="data[musikArtist]" id="musikArtist" placeholder="Artist" value="" required>
             </div>
         </div>
 
         <div class="col-12 col-md-6 mb-2">
             <div class="mb-3 text-white">
                 <label for="musikAlbum" class="form-label fs-5">Album</label>
-                <input class="form-control" type="text" name="data[musikAlbum]" id="musikAlbum" placeholder="Album" value="">
+                <input class="form-control fs-5" type="text" name="data[musikAlbum]" id="musikAlbum" placeholder="Album" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-6 mb-4">
             <div class="mb-3 text-white">
                 <label for="musikGenre" class="form-label fs-5">Genre / subgenre</label>
-                <input class="form-control" type="text" name="data[musikGenre]" id="musikGenre" placeholder="Genre / subgenre" value="">
+                <input class="form-control fs-5" type="text" name="data[musikGenre]" id="musikGenre" placeholder="Genre / subgenre" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-4 mb-2">
             <div class="mb-3 text-white">
                 <label for="musikOrigin" class="form-label fs-5">Origin</label>
-                <input class="form-control" type="text" name="data[musikOrigin]" id="musikOrigin" placeholder="Origin" value="">
+                <input class="form-control fs-5" type="text" name="data[musikOrigin]" id="musikOrigin" placeholder="Origin" value="">
             </div>
         </div>
 
@@ -103,49 +103,49 @@ if(!empty($_POST["data"])){
         <div class="col-4 mb-2">
             <div class="has-validation mb-3 text-white">
                 <label for="musikRelease" class="form-label fs-5">Date of release</label>
-                <input class="form-control" type="date" name="data[musikRelease]" id="musikRelease" placeholder="" value="" required>
+                <input class="form-control fs-5" type="date" name="data[musikRelease]" id="musikRelease" placeholder="" value="" required>
             </div>
         </div>
 
         <div class="col-4 mb-4">
             <div class="has-validation mb-3 text-white">
                 <label for="musikTime" class="form-label fs-5">Track length</label>
-                <input class="form-control" type="time" name="data[musikTime]" id="musikTime" step="1" placeholder="00:00:00" value="00:00:00" min="00:00:00" required>
+                <input class="form-control fs-5" type="time" name="data[musikTime]" id="musikTime" step="1" placeholder="00:00:00" value="00:00:00" min="00:00:00" required>
             </div>
         </div>
 
         <div class="col-6 mb-4">
             <div class="mb-3 text-white">
                 <label for="musikImg" class="form-label fs-5">Upload album cover art</label>
-                <input class="form-control" type="file" name="musikImg" id="musikImg" placeholder="" value="">
+                <input class="form-control fs-5" type="file" name="musikImg" id="musikImg" placeholder="" value="">
             </div>
         </div>
 
         <div class="col-12 mb-2">
             <div class="mb-3 text-white">
                 <label for="musikBandInstrument" class="form-label fs-5">Band members / instruments</label>
-                <textarea class="form-control" name="data[musikBandInstrument]" id="musikBandInstrument" placeholder="John doe - Guitar" style="height:200px;"></textarea>
+                <textarea class="form-control fs-5" name="data[musikBandInstrument]" id="musikBandInstrument" placeholder="John doe - Guitar" style="height:200px;"></textarea>
             </div>
         </div>
 
         <div class="col-12 mb-4">
             <div class="mb-3 text-white">
                 <label for="musikAlbumTracklist" class="form-label fs-5">Album tracklist</label>
-                <textarea class="form-control" name="data[musikAlbumTracklist]" id="musikAlbumTracklist" placeholder="Track #1 - 00:00" style="height:200px;"></textarea>
+                <textarea class="form-control fs-5" name="data[musikAlbumTracklist]" id="musikAlbumTracklist" placeholder="Track #1 - 00:00" style="height:200px;"></textarea>
             </div>
         </div>
 
         <div class="col-12 col-md-6 mb-2">
             <div class="mb-3 text-white">
                 <label for="musikBuy" class="form-label fs-5">Amazon product link</label>
-                <input class="form-control" type="text" name="data[musikBuy]" id="musikBuy" placeholder="Amazon product link" value="">
+                <input class="form-control fs-5" type="text" name="data[musikBuy]" id="musikBuy" placeholder="Amazon product link" value="">
             </div>
         </div>
 
         <div class="col-12 col-md-3 mb-2">
             <div class="mb-3 text-white">
                 <label for="musikPrice" class="form-label fs-5">Price in dollars</label>
-                <input class="form-control" type="number" step=".01" name="data[musikPrice]" id="musikPrice" placeholder="9.99" value="">
+                <input class="form-control fs-5" type="number" step=".01" name="data[musikPrice]" id="musikPrice" placeholder="9.99" value="">
             </div>
         </div>
 
