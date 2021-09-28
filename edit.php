@@ -39,7 +39,7 @@ $information = $db->sql("SELECT * FROM information");
 <nav>
     <div class="d-flex justify-content-between align-items-center my-3 my-xl-5">
         <a href="index.php" class="text-decoration-none"><h5 class="m-0 h5 nav__header">Music Database</h5></a>
-        <a class="btn btn-primary text-white" href="index.php" role="button">Front page</a>
+        <a class="btn btn-primary text-white" href="index.php" role="button"><i class="fas fa-home me-1 me-xl-2"></i>Back to home</a>
     </div>
 </nav>
 
@@ -69,6 +69,8 @@ foreach ($information as $info) {
 ?>
     </div>
 </div>
+
+<?php include"includes/footer.php";?>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>

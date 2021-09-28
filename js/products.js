@@ -28,7 +28,7 @@ export default class Products {
 
         for(const item of data){
             const col = document.createElement('div');
-            col.classList.add('col-md-6', 'col-lg-4', 'col-xl-3', 'd-flex', 'align-items-stretch');
+            col.classList.add('col-md-6', 'col-lg-4', 'd-flex', 'align-items-stretch');
 
             col.innerHTML = `
                 <div class="card text-white border-0">
