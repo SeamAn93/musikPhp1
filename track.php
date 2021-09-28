@@ -23,6 +23,10 @@ require "settings/init.php";
 $bind = [':musikId' => $_GET['musikId']];
 $musikinfo = $db->sql("SELECT * FROM information WHERE musikID = :musikId", $bind);
 $musikinfo = $musikinfo[0];
+
+$dateFromDb = strtotime("$musikinfo->musikRelease"); //Din dato fra databasen
+$date = date("j. F Y", $dateFromDb);
+
 ?>
 <body>
 <section class="container">
@@ -58,7 +62,7 @@ $musikinfo = $musikinfo[0];
             </div>
             <div class="col-6 col-md-5">
                 <h5 class="text__h5__mod"><?php echo $musikinfo->musikAlbum; ?></h5>
-                <h5 class="text__h5__mod"><?php echo $musikinfo->musikRelease; ?></h5>
+                <h5 class="text__h5__mod"><?php echo $date; ?></h5>
                 <h5 class="text__h5__mod"><?php echo $musikinfo->musikTime; ?></h5>
                 <h5 class="text__h5__mod"><?php echo $musikinfo->musikOrigin; ?></h5>
                 <h5 class="text__h5__mod"><?php echo $musikinfo->musikGenre; ?></h5>
