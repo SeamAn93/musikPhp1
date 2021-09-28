@@ -32,11 +32,11 @@ $information = $db->sql("SELECT * FROM information");
     <script src="https://kit.fontawesome.com/d7a71e7a7e.js" crossorigin="anonymous"></script>
 </head>
 
-<body
+<body>
 <?php
 foreach ($information as $info) {
     ?>
-    <div class="row">
+    <div class="row text-white">
         <div class="col-4">
             <?php
             echo $info->musikTitel;

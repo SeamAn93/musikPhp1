@@ -20,8 +20,9 @@
 
 <?php
 require "settings/init.php";
-
-$musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
+$bind = [':musikId' => $_GET['musikId']];
+$musikinfo = $db->sql("SELECT * FROM information WHERE musikID = :musikId", $bind);
+$musikinfo = $musikinfo[0];
 
 ?>
 <body>
@@ -33,20 +34,20 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
         </div>
     </nav>
 
-    <!--Billede, titel og numre--!>
-<div class="row">
+    <!--Billede, titel og numre-->
+<div class="info row">
     <div class="col-xl-7">
         <div class="row">
             <div class="col-12 col-md-6">
-                <img src="uploads/Meteora.jpg" alt="Linkin Park Album cover Meteora" class="mt-5 mb-5 ms-md-0 me-xl-0">
+                <img src="uploads/<?php echo $musikinfo->musikImg; ?>" alt="Linkin Park Album cover Meteora" class="mt-5 mb-5 ms-md-0 me-xl-0">
             </div>
             <div class="text-center col-12 col-md-4 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-                <h2>Numb</h2>
-                <h5 class="text__h5__mod">Linkin Park</h5>
+                <h2><?php echo $musikinfo->musikTitel; ?></h2>
+                <h5 class="text__h5__mod"><?php echo $musikinfo->musikArtist; ?></h5>
             </div>
         </div>
 
-        <!-- Andre informationer om nummeret --!>
+        <!-- Andre informationer om nummeret -->
 
         <div class="row my-4">
             <div class="album__info col-6 col-md-5">
@@ -57,26 +58,26 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
                 <h5 class="text__h5__mod">Genre/subgenre:</h5>
             </div>
             <div class="col-6 col-md-5">
-                <h5 class="text__h5__mod">Meteora</h5>
-                <h5 class="text__h5__mod">8 September, 2003</h5>
-                <h5 class="text__h5__mod">03:06</h5>
-                <h5 class="text__h5__mod">USA</h5>
-                <h5 class="text__h5__mod">Nu metal, alternativ rock</h5>
+                <h5 class="text__h5__mod"><?php echo $musikinfo->musikAlbum; ?></h5>
+                <h5 class="text__h5__mod"><?php echo $musikinfo->musikRelease; ?></h5>
+                <h5 class="text__h5__mod"><?php echo $musikinfo->musikTime; ?></h5>
+                <h5 class="text__h5__mod"><?php echo $musikinfo->musikOrigin; ?></h5>
+                <h5 class="text__h5__mod"><?php echo $musikinfo->musikGenre; ?></h5>
             </div>
         </div>
 
-        <!--Pris og link til amazon --!>
+        <!--Pris og link til amazon -->
 
         <div class="buy d-flex justify-content-start my-5">
-            <h5 class="me-3 mb-0 d-flex align-self-center">$ 5.00</h5>
+            <h5 class="me-3 mb-0 d-flex align-self-center"><?php echo "$" . $musikinfo->musikPrice; ?></h5>
             <a class="btn btn-primary text-white d-flex align-items-center ms-3" href="<?php
-            $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
+            $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=:musikId", $bind);
             foreach ($musikinfo as $musik) {
                 echo $musik->musikBuy;
             } ?>" target="_blank" role="button"><i class="fab fa-amazon me-1 me-xl-2"></i>Buy on Amazon</a>
         </div>
     </div>
-    <!-- Tracklist --!>
+    <!-- Tracklist -->
 
     <div class="col-xl-5">
         <div class="flex-column mb-5">
@@ -84,7 +85,7 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
             <div class="line"></div>
             <div class="tracklist__items">
                 <?php
-                $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
+                $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=:musikId", $bind);
                 foreach ($musikinfo as $musik) {
                     echo $musik->musikAlbumTracklist;
                 }
@@ -98,7 +99,7 @@ $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
         <div class="line"></div>
         <div class="band__items text-white fs-5">
             <?php
-            $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=1");
+            $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=:musikId", $bind);
             foreach ($musikinfo as $musik) {
                 echo $musik->musikBandInstrument;
             }
