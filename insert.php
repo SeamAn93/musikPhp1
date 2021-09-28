@@ -34,7 +34,7 @@ if(!empty($_POST["data"])){
 <html lang="da">
 <head>
     <meta charset="utf-8">
-    <title>Musik Database</title>
+    <title>Add music</title>
     <meta name="robots" content="All">
     <meta name="author" content="David Osbeck & Søren Andersen">
     <meta name="copyright" content="David Osbeck & Søren Andersen">
