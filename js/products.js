@@ -34,9 +34,9 @@ export default class Products {
                 <div class="card text-white border-0">
                     <img src="uploads/${item.musikImg}" class="card-img-top">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">${item.musikTitel}</h5>
-                        <p class="card-text mb-4">${item.musikArtist}</p>
-                        <a href="track.php?musikId=${item.musikId}" class="btn btn-primary text-white w-100 mt-auto">View details</a>
+                        <h5 class="card-title fs-4">${item.musikTitel}</h5>
+                        <p class="card-text fs-5 mb-4">${item.musikArtist}</p>
+                        <a href="track.php?musikId=${item.musikId}" class="btn btn-primary text-white w-100 mt-auto"><i class="fas fa-info me-1 me-xl-2"></i>View details</a>
                     </div>
                 </div>
             `;

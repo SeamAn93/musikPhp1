@@ -48,6 +48,10 @@ input::-webkit-inner-spin-button {
 	margin: 0;
 }
 
+.container {
+	min-height: 100vh;
+}
+
 .info img {
 	border-radius: 5px;
 }
@@ -55,7 +59,7 @@ input::-webkit-inner-spin-button {
 .card-body {
 	backdrop-filter: blur(16px) saturate(180%);
 	-webkit-backdrop-filter: blur(16px) saturate(180%);
-	background-color: rgba(17, 25, 40, 0.75);
+	background-color: rgba(17, 25, 40, 0.80);
 	border-radius: 0 0 3px 3px;
 	border: 1px solid rgba(255, 255, 255, 0.125);
 	-webkit-box-shadow: 0px 0px 50px 0px rgba(0,132,255,0.2);

@@ -41,7 +41,7 @@ $musikinfo = $musikinfo[0];
             <div class="col-12 col-md-6">
                 <img src="uploads/<?php echo $musikinfo->musikImg; ?>" alt="Linkin Park Album cover Meteora" class="mt-5 mb-5 ms-md-0 me-xl-0">
             </div>
-            <div class="text-center col-12 col-md-4 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+            <div class="text-center col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
                 <h2><?php echo $musikinfo->musikTitel; ?></h2>
                 <h5 class="text__h5__mod"><?php echo $musikinfo->musikArtist; ?></h5>
             </div>
@@ -69,7 +69,7 @@ $musikinfo = $musikinfo[0];
         <!--Pris og link til amazon -->
 
         <div class="buy d-flex justify-content-start my-5">
-            <h5 class="me-3 mb-0 d-flex align-self-center"><?php echo "$" . $musikinfo->musikPrice; ?></h5>
+            <h5 class="me-3 mb-0 d-flex align-self-center"><?php echo "From $" . $musikinfo->musikPrice; ?></h5>
             <a class="btn btn-primary text-white d-flex align-items-center ms-3" href="<?php
             $musikinfo = $db->sql("SELECT * FROM information WHERE musikID=:musikId", $bind);
             foreach ($musikinfo as $musik) {
@@ -108,7 +108,7 @@ $musikinfo = $musikinfo[0];
     </div>
 </section>
 
-<footer class="pt-5 pb-2 mt-5">
+<footer class="pt-5 pb-3 mt-5">
     <div class="icon__container d-flex justify-content-center text-white">
         <a href="https://github.com/SeamAn93/musikPhp1" class="mb-4 text-white"><i class="fab fa-github fa-3x"></i></a>
     </div>
