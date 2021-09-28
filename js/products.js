@@ -24,7 +24,7 @@ export default class Products {
         const data = await this.getData();
 
         const row = document.createElement('div');
-        row.classList.add('row', 'g-4', 'mt-5',);
+        row.classList.add('row', 'g-5', 'pt-2');
 
         for(const item of data){
             const col = document.createElement('div');
