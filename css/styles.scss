@@ -110,6 +110,22 @@ input::-webkit-inner-spin-button {
 	background-color: #203041;
 }
 
+.edit__list .wrapper {
+	font-size: 1.125rem;
+	margin: .5rem 0;
+	padding: 1rem;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.edit__list .wrapper:nth-child(odd){
+	background-color: #0A2541;
+}
+
+.edit__list .wrapper:nth-child(even){
+	background-color: #203041;
+}
+
 footer {
 	background-color: #0C0D0E;
 }

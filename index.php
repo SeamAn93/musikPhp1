@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Music Database</title>
+    <title>Front Page</title>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
@@ -47,8 +47,6 @@
                 </div>
             </div>
         </div>
-
-        <h2 class="pt-4">Ordered A-Z</h2>
 
         <div class="items">
             <!-- Her vises produkterne -->

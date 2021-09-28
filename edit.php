@@ -21,7 +21,7 @@ $information = $db->sql("SELECT * FROM information");
 <html lang="da">
 <head>
     <meta charset="utf-8">
-    <title>Musik Database</title>
+    <title>Edit tracks</title>
     <meta name="robots" content="All">
     <meta name="author" content="David Osbeck & Søren Andersen">
     <meta name="copyright" content="David Osbeck & Søren Andersen">
@@ -33,27 +33,43 @@ $information = $db->sql("SELECT * FROM information");
 </head>
 
 <body>
+
+<div class="container">
+
+<nav>
+    <div class="d-flex justify-content-between align-items-center my-3 my-xl-5">
+        <a href="index.php" class="text-decoration-none"><h5 class="m-0 h5 nav__header">Music Database</h5></a>
+        <a class="btn btn-primary text-white" href="index.php" role="button">Front page</a>
+    </div>
+</nav>
+
+    <div class="edit__list">
 <?php
 foreach ($information as $info) {
     ?>
-    <div class="row text-white">
-        <div class="col-4">
-            <?php
+    <div class="wrapper text-white d-flex">
+        <div class="flex-column d-flex col-10 me-3 justify-content-center">
+            <p class="fs-5"><?php
             echo $info->musikTitel;
             ?>
-        </div>
-        <div class="col-4">
+            </p>
+            <p class="fs-6">
             <?php
-            echo $info->musikTime;
+            echo $info->musikArtist;
             ?>
+            </p>
         </div>
-        <div class="col-4">
-            <a href="index.php?type=slet&id=<?php echo $info->musikId; ?>">Slet</a>
+        <div class="d-sm-flex justify-content-end col-2">
+            <a class="d-flex align-items-center justify-content-center btn btn-lg btn-primary text-white my-2 me-2" href="#"><i class="fas fa-pen me-lg-2"></i><span class="d-none d-lg-block">Edit</span></a>
+            <a class="d-flex align-items-center justify-content-center btn btn-lg btn-primary text-white my-2 me-2" href="index.php?type=slet&id=<?php echo $info->musikId; ?>"><i class="fas fa-trash me-lg-2"></i><span class="d-none d-lg-block">Remove</span></a>
         </div>
     </div>
     <?php
 }
 ?>
+    </div>
+</div>
+
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
