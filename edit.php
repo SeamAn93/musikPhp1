@@ -44,6 +44,7 @@ $information = $db->sql("SELECT * FROM information");
 </nav>
 
     <div class="edit__list">
+        <h2 class="header__title text-white mb-5 pt-4 fw-normal">Edit or remove from database</h2>
 <?php
 foreach ($information as $info) {
     ?>
@@ -61,7 +62,7 @@ foreach ($information as $info) {
         </div>
         <div class="d-sm-flex justify-content-end col-2">
             <a class="d-flex align-items-center justify-content-center btn btn-lg btn-primary text-white my-2 me-2" href="#"><i class="fas fa-pen me-lg-2"></i><span class="d-none d-lg-block">Edit</span></a>
-            <a class="d-flex align-items-center justify-content-center btn btn-lg btn-primary text-white my-2 me-2" href="index.php?type=slet&id=<?php echo $info->musikId; ?>"><i class="fas fa-trash me-lg-2"></i><span class="d-none d-lg-block">Remove</span></a>
+            <a class="d-flex align-items-center justify-content-center btn btn-lg btn-primary text-white my-2 me-2 me-sm-3" href="index.php?type=slet&id=<?php echo $info->musikId; ?>"><i class="fas fa-trash me-lg-2"></i><span class="d-none d-lg-block">Remove</span></a>
         </div>
     </div>
     <?php
