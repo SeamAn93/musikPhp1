@@ -21,7 +21,7 @@
 <?php
 require "settings/init.php";
 $bind = [':musikId' => $_GET['musikId']];
-$musikinfo = $db->sql("SELECT * FROM information WHERE musikID = :musikId", $bind);
+$musikinfo = $db->sql("SELECT * FROM information WHERE musikId = :musikId", $bind);
 $musikinfo = $musikinfo[0];
 
 $dateFromDb = strtotime("$musikinfo->musikRelease"); //Din dato fra databasen
