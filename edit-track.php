@@ -178,7 +178,12 @@ $info = $info[0];
 <script>
     tinymce.init({
         selector: 'textarea',
-        menubar: false;
+        cleanup_on_startup : true,
+        fix_list_elements : false,
+        fix_nesting : false,
+        fix_table_elements : false,
+        paste_use_dialog : true,
+        paste_auto_cleanup_on_paste : true,
     });
 </script>
 

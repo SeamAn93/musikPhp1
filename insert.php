@@ -182,8 +182,16 @@ if(isset($_GET["insert"])){
 
 <script>
     tinymce.init({
-        selector: 'textarea',
-        menubar: false;
+        selector : 'textarea',
+        menubar: false,
+        toolbar: 'undo redo',
+        cleanup_on_startup : true,
+        fix_list_elements : false,
+        fix_nesting : false,
+        fix_table_elements : false,
+        paste_use_dialog : true,
+        paste_auto_cleanup_on_paste : true,
+        valid_elements: '+p[id|class|rel]',
     });
 </script>
 
