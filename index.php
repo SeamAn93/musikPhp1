@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <h2 class="mb-1 pt-4">Ordered by A-Z</h2>
+        <h2 class="mb-2 pt-4">Ordered by A-Z</h2>
 
         <div class="items">
             <!-- Her vises produkterne -->
