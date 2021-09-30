@@ -10,7 +10,6 @@ if(!empty($_GET["type"])) {
         $db->sql("DELETE FROM information WHERE musikId = :musikId", [":musikId"=>$id], false);
 
         header("location: edit.php");
-
     }
 }
 
@@ -73,7 +72,7 @@ foreach ($information as $info) {
         </div>
         <div class="d-sm-flex justify-content-end col-2">
             <a class="d-flex align-items-center justify-content-center btn btn-lg btn-primary text-white my-2 me-2" href="edit-track.php?type=rediger&id=<?php echo $info->musikId; ?>"><i class="fas fa-pen me-lg-2"></i><span class="d-none d-lg-block">Edit</span></a>
-            <a class="d-flex align-items-center justify-content-center btn btn-lg btn-primary text-white my-2 me-2 me-sm-3" href="edit.php?type=slet&id=<?php echo $info->musikId; ?>"><i class="fas fa-trash me-lg-2"></i><span class="d-none d-lg-block">Remove</span></a>
+            <a class="d-flex align-items-center justify-content-center btn btn-lg btn-primary text-white my-2 me-2 me-sm-3 deleteBtn" data-url="edit.php?type=slet&id=<?php echo $info->musikId; ?>"><i class="fas fa-trash me-lg-2"></i><span class="d-none d-lg-block">Remove</span></a>
         </div>
     </div>
     <?php
@@ -82,8 +81,33 @@ foreach ($information as $info) {
     </div>
 </div>
 
+<div class="modal" tabindex="-1" id="deleteModal" data-en-hund="" data-to-kat="">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="text-body">Are you sure you want to remove this?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="index.php"><button type="button" class="btn btn-lg btn-cancel" data-bs-dismiss="modal" aria-label="Close">Cancel</button></a>
+                <a href="" class="btn btn-lg btn-primary text-white modalConfirm">Confirm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php include"includes/footer.php";?>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const deleteModalElem = document.querySelector('#deleteModal');
+    const modalConfirm = deleteModalElem.querySelector('.modalConfirm');
+    const deleteModal = new bootstrap.Modal(deleteModalElem);
+
+    document.querySelectorAll('.deleteBtn').forEach(deleteBtn => deleteBtn.addEventListener('click', () => {
+        modalConfirm.href = deleteBtn.dataset.url;
+        deleteModal.show();
+    }));
+
+</script>
 </body>
 </html>

@@ -132,7 +132,7 @@ $info = $info[0];
             <div class="col-6 mb-4">
                 <div class="mb-3 text-white">
                     <label for="musikImg" class="form-label fs-5">Upload album cover art</label>
-                    <input class="form-control fs-5" type="file" name="musikImg" id="musikImg" placeholder="">
+                    <input class="form-control fs-5" type="file" name="musikImg" id="musikImg" placeholder="" required>
                 </div>
             </div>
 
@@ -178,13 +178,7 @@ $info = $info[0];
 <script>
     tinymce.init({
         selector: 'textarea',
-        menubar: false,
-        cleanup_on_startup : true,
-        fix_list_elements : false,
-        fix_nesting : false,
-        fix_table_elements : false,
-        paste_use_dialog : true,
-        paste_auto_cleanup_on_paste : true,
+        menubar: false;
     });
 </script>
 
