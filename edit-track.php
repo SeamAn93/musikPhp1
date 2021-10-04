@@ -53,7 +53,7 @@ $info = $info[0];
     <meta name="robots" content="All">
     <meta name="author" content="David Osbeck & Søren Andersen">
     <meta name="copyright" content="David Osbeck & Søren Andersen">
-    <link href="css/styles.scss" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
