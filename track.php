@@ -27,6 +27,13 @@ $musikinfo = $musikinfo[0];
 $dateFromDb = strtotime("$musikinfo->musikRelease"); //Din dato fra databasen
 $date = date("j. F Y", $dateFromDb);
 
+$timeFromDb = strtotime("$musikinfo->musikTime");
+if (((int) date("H", $timeFromDb)) === 00) {
+    $time = date("i:s", $timeFromDb);
+}else {
+    $time = date("H:i:s", $timeFromDb);
+}
+
 ?>
 <body>
 <section class="container">
@@ -63,7 +70,7 @@ $date = date("j. F Y", $dateFromDb);
             <div class="col-6 col-md-5">
                 <h5 class="text__h5__mod"><?php echo $musikinfo->musikAlbum; ?></h5>
                 <h5 class="text__h5__mod"><?php echo $date; ?></h5>
-                <h5 class="text__h5__mod"><?php echo $musikinfo->musikTime; ?></h5>
+                <h5 class="text__h5__mod"><?php echo $time; ?></h5>
                 <h5 class="text__h5__mod"><?php echo $musikinfo->musikOrigin; ?></h5>
                 <h5 class="text__h5__mod"><?php echo $musikinfo->musikGenre; ?></h5>
             </div>

@@ -9,7 +9,7 @@ $input-bg: #fff;
 @import "../node_modules/bootstrap/scss/mixins";
 
 $custom-colors: (
-        "primary": #007DFF,
+        "primary": #2b56f7,
         "cancel": #D93030
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
