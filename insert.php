@@ -117,7 +117,7 @@ if(!empty($_POST["data"])){
         <div class="col-6 mb-4">
             <div class="mb-3 text-white">
                 <label for="musikImg" class="form-label fs-5">Upload album cover art</label>
-                <input class="form-control fs-5" type="file" name="musikImg" id="musikImg" placeholder="" value="" required>
+                <input class="form-control fs-5" type="file" name="musikImg" id="musikImg" placeholder="" value="">
             </div>
         </div>
 
